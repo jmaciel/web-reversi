@@ -1,0 +1,53 @@
+<HTML>
+
+<head>
+    <title>Web Reversi</title>
+    <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/dist/sweetalert.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body style="padding-top: 70px;">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                Web-Reversi
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Sobre</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid game-menu">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 cel">
+            <button id="bt-single-player" class="btn btn-primary btn-lg">Single Player</button>
+        </div>
+        <div class="col-xs-12 col-md-12 cel">
+            <button id="bt-multi-player" class="btn btn-success btn-lg">Mullti Player</button>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="js/home.js"></script>
+
+</HTML>

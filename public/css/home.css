@@ -1,0 +1,9 @@
+.game-menu button{
+    width: 150px;
+}
+.game-menu .cel {
+    padding: 5px 10px 5px 10px;
+}
+.game-menu .row {
+    text-align: center;
+}
