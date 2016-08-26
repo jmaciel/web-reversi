@@ -4,8 +4,8 @@ var player = 'preta';
 
 function classeToDisplay(classe){
 	var display = new Array();
-	display['preta'] = 'Preto';
-	display['branca'] = 'Branco';
+	display['preta'] = 'PRETO';
+	display['branca'] = 'BRANCO';
 	return display[classe];
 }
 
@@ -235,6 +235,12 @@ function capturar(objeto){
 			mudarJogador();
 		}
 	}
+	calculaPontos();
+}
+
+function calculaPontos(){
+	$('#player-1 .pontos').text($('.peca-preta').length-1);
+	$('#player-2 .pontos').text($('.peca-branca').length-1);
 }
 
 $(".player-selector").click(function(e){
