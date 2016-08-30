@@ -41,9 +41,7 @@
 	background: #DBFFC3;
 	width: 11vmin;
 	height: 11vmin;
-	text-align: center;
-	vertical-align: middle;
-	/*margin-right: -2px !important;*/
+	margin-right: -1px;
 }
 
 .conteudo {
