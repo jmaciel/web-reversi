@@ -2,7 +2,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Reversi\'s JavaScript requ
 
 $('#bt-local-player').click(function(e){
     e.preventDefault();
-    window.location.href = '/pages/tabuleiro.html';
+    window.location.href = 'pages/tabuleiro.html';
 });
 
 $('#bt-multi-player').click(function(e){
