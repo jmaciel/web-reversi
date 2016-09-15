@@ -9,9 +9,10 @@
 	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="../bower_components/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="../js/reversi-ia.js"></script>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-
+    <meta charset="utf-8">
 </head>
 
 <body style="padding-top: 60px;">
@@ -80,8 +81,8 @@
 						<td id="4_1"><div data-x="4" data-y="1" class="casa"></div></td>
 						<td id="4_2"><div data-x="4" data-y="2" class="casa"></div></td>
 						<td id="4_3"><div data-x="4" data-y="3" class="casa"></div></td>
-						<td id="4_4"><div data-x="4" data-y="4" class="casa"><div class="peca peca-branca"></div></div></td>
-						<td id="4_5"><div data-x="4" data-y="5" class="casa"><div class="peca peca-preta"></div></div></td>
+						<td id="4_4"><div data-x="4" data-y="4" class="casa"><div class="peca peca-2"></div></div></td>
+						<td id="4_5"><div data-x="4" data-y="5" class="casa"><div class="peca peca-1"></div></div></td>
 						<td id="4_6"><div data-x="4" data-y="6" class="casa"></div></td>
 						<td id="4_7"><div data-x="4" data-y="7" class="casa"></div></td>
 						<td id="4_8"><div data-x="4" data-y="8" class="casa"></div></td>
@@ -90,8 +91,8 @@
 						<td id="5_1"><div data-x="5" data-y="1" class="casa"></div></td>
 						<td id="5_2"><div data-x="5" data-y="2" class="casa"></div></td>
 						<td id="5_3"><div data-x="5" data-y="3" class="casa"></div></td>
-						<td id="5_4"><div data-x="5" data-y="4" class="casa"><div class="peca peca-preta"></div></div></td>
-						<td id="5_5"><div data-x="5" data-y="5" class="casa"><div class="peca peca-branca"></div></div></td>
+						<td id="5_4"><div data-x="5" data-y="4" class="casa"><div class="peca peca-1"></div></div></td>
+						<td id="5_5"><div data-x="5" data-y="5" class="casa"><div class="peca peca-2"></div></div></td>
 						<td id="5_6"><div data-x="5" data-y="6" class="casa"></div></td>
 						<td id="5_7"><div data-x="5" data-y="7" class="casa"></div></td>
 						<td id="5_8"><div data-x="5" data-y="8" class="casa"></div></td>
@@ -131,8 +132,8 @@
 
 			<div class="col-xs-12">
 				<div id="info-panel">
-					<div id="player-1"><span class="pontos">2</span><div class="peca-panel peca-preta"></div><span>PRETO</span></div>
-					<div id="player-2"><span class="pontos">2</span><div class="peca-panel peca-branca"></div><span>BRANCO</span></div>
+					<div id="player-1"><span class="pontos">2</span><div class="peca-panel peca-1"></div><span>PRETO</span></div>
+					<div id="player-2"><span class="pontos">2</span><div class="peca-panel peca-2"></div><span>BRANCO</span></div>
 				</div>
 			</div>
 

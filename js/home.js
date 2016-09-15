@@ -5,20 +5,21 @@ $('#bt-local-player').click(function(e){
     window.location.href = 'pages/tabuleiro.html';
 });
 
-$('#bt-multi-player').click(function(e){
-    e.preventDefault();
-    swal({
-        title: "Sorry",
-        text: "This feature is not ready yet",
-        type: "info"
-    });
-});
-
 $('#bt-single-player').click(function(e){
     e.preventDefault();
     swal({
-        title: "Sorry",
-        text: "This feature is not ready yet",
+        title: "Desculpa",
+        text: "Essa função ainda não está pronta",
+        type: "info"
+    });
+    //window.location.href = 'pages/tabuleiro-sp.html';
+});
+
+$('#bt-multi-player').click(function(e){
+    e.preventDefault();
+    swal({
+        title: "Desculpa",
+        text: "Essa função ainda não está pronta",
         type: "info"
     });
 });

@@ -13,7 +13,7 @@
 	border-radius: 100%;
 }
 
-.peca-preta {
+.peca-1 {
 	background: rgb(96,108,136); /* Old browsers */
 	background: -moz-radial-gradient(center, ellipse cover,  rgba(96,108,136,1) 0%, rgba(63,76,107,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(96,108,136,1)), color-stop(100%,rgba(63,76,107,1))); /* Chrome,Safari4+ */
@@ -24,7 +24,7 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-.peca-branca {
+.peca-2 {
 	background: rgb(242,243,246); /* Old browsers */
 	background: -moz-radial-gradient(center, ellipse cover,  rgba(242,243,246,1) 0%, rgba(237,240,245,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(242,243,246,1)), color-stop(100%,rgba(237,240,245,1))); /* Chrome,Safari4+ */
@@ -41,6 +41,7 @@
 	background: #DBFFC3;
 	width: 11vmin;
 	height: 11vmin;
+	margin-right: -1px;
 }
 
 .conteudo {
@@ -76,12 +77,12 @@
 	border-radius: 100%;
 }
 
-#info-panel .peca-panel.peca-preta {
+#info-panel .peca-panel.peca-1 {
 	float: left;
 	margin-right: 5px;
 }
 
-#info-panel .peca-panel.peca-branca {
+#info-panel .peca-panel.peca-2 {
 	float: right;
 	margin-left: 5px;
 }

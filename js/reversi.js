@@ -1,255 +1,85 @@
+/**
+ * Created by J on 12/09/2016.
+ */
 if (typeof jQuery === 'undefined') { throw new Error('Reversi\'s JavaScript requires jQuery') }
+if (typeof reversiIa === 'undefined') { throw new Error('Reversi\'s JavaScript requires reversiIa') }
 
-var player = 'preta';
+var singlePlayerGame = {
 
-function classeToDisplay(classe){
-	var display = new Array();
-	display['preta'] = 'PRETO';
-	display['branca'] = 'BRANCO';
-	return display[classe];
+    jogador: reversiIa.jogadorPreto,
+
+    placar: reversiIa.getPlacar(),
+
+	init: function() {
+        jQuery('.casa').click(function () {
+            var casa = {'linha': jQuery(this).data('x'), 'coluna': jQuery(this).data('y')};
+            singlePlayerGame.colocarPeca(casa, singlePlayerGame.jogador);
+        });
+    },
+
+    colocarPeca: function (casa, jogador) {
+        reversiIa.colocarPeca(casa, jogador);
+        singlePlayerGame.atualizarTabuleiro();
+        if( JSON.stringify(singlePlayerGame.placar) != JSON.stringify(reversiIa.getPlacar()) ) {
+            singlePlayerGame.atualizaPlacar();
+            singlePlayerGame.mudaJogador();
+        }
+        if(!reversiIa.movimentosDisponiveis(singlePlayerGame.jogador)) {
+            singlePlayerGame.finalizaPartida();
+        }
+    },
+
+    finalizaPartida:  function () {
+        if(singlePlayerGame.placar['preto'] > singlePlayerGame.placar['branco']) {
+            swal({
+                title: "Fim de jogo",
+                text: "O jogador PRETO venceu essa partida!",
+                // type: "info"
+            });
+        }
+        if(singlePlayerGame.placar['preto'] < singlePlayerGame.placar['branco']) {
+            swal({
+                title: "Fim de jogo",
+                text: "O jogador BRANCO venceu essa partida!",
+                // type: "info"
+            });
+        }
+        if(singlePlayerGame.placar['preto'] == singlePlayerGame.placar['branco']) {
+            swal({
+                title: "Fim de jogo",
+                text: "Empate!",
+                // type: "info"
+            });
+        }
+    },
+    
+    mudaJogador: function () {
+        if( singlePlayerGame.jogador == 1 ) {
+            singlePlayerGame.jogador = 2;
+            jQuery('#player').html('Jogador: BRANCO');
+        } else if ( singlePlayerGame.jogador == 2 ) {
+            singlePlayerGame.jogador = 1;
+            jQuery('#player').html('Jogador: PRETO');
+        }
+    },
+
+    atualizaPlacar: function () {
+        singlePlayerGame.placar = reversiIa.getPlacar();
+        jQuery('#player-1 .pontos').text(singlePlayerGame.placar['preto']);
+        jQuery('#player-2 .pontos').text(singlePlayerGame.placar['branco']);
+    },
+
+    atualizarTabuleiro: function () {
+        jQuery.each( reversiIa.tabuleiro, function (nLinha, linha) {
+            jQuery.each( linha, function (nColuna, peca) {
+                if( peca != 0 ) {
+                    jQuery('#' + nLinha + '_' + nColuna + ' .casa').html('<div class="peca peca-' + peca + '"></div>');
+                }
+            });
+        });
+    }
+
 }
 
-function selecionarJogador(objeto){
-	player = $(objeto).data('player');
-	$('#player').html("Jogador: "+classeToDisplay(player));
-}
-
-function mudarJogador(){
-	var change = new Array();
-	change['preta'] =  'branca';
-	change['branca'] =  'preta';
-	player = change[player];
-	$('#player').html("Jogador: "+classeToDisplay(player));
-}
-
-function colocarPeca(objeto){
-	  $(objeto).html('<div class="peca peca-'+player+'"></div>');
-}
-
-function capturar(objeto){
-	var pos = new Array();
-	pos['x'] = $(objeto).data('x');
-	pos['y'] = $(objeto).data('y');
-	
-	temPeca = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca');
-	
-	if(!temPeca){
-		var capturadas = new Array();
-		var teste = true;
-		var line = new Array();
-		while(teste == true){
-			pos['y']--;
-			if(pos['y'] > 0){
-				temPeca = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca');
-				if(temPeca){
-					fim = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca-'+player);
-					if(fim){
-						capturadas = capturadas.concat(line);
-						teste = false;
-					}else{
-						line.push('#'+pos['x']+'_'+pos['y']);
-					}
-				}else{
-					teste = false;
-				}
-			}else{
-				teste = false;
-			}
-		}
-		
-		pos['y'] = $(objeto).data('y');
-		teste = true;
-		var line = new Array();
-		while(teste == true){
-			pos['y']++;
-			if(pos['y'] <= 8){
-				temPeca = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca');
-				if(temPeca){
-					fim = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca-'+player);
-					if(fim){
-						capturadas = capturadas.concat(line);
-						teste = false;
-					}else{
-						line.push('#'+pos['x']+'_'+pos['y']);
-					}
-				}else{
-					teste = false;
-				}
-			}else{
-				teste = false;
-			}
-		}
-		
-		pos['y'] = $(objeto).data('y');
-		teste = true;
-		var line = new Array();
-		while(teste == true){
-			pos['x']--;
-			if(pos['x'] > 0){
-				temPeca = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca');
-				if(temPeca){
-					fim = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca-'+player);
-					if(fim){
-						capturadas = capturadas.concat(line);
-						teste = false;
-					}else{
-						line.push('#'+pos['x']+'_'+pos['y']);
-					}
-				}else{
-					teste = false;
-				}
-			}else{
-				teste = false;
-			}
-		}
-		
-		pos['x'] = $(objeto).data('x');
-		teste = true;
-		var line = new Array();
-		while(teste == true){
-			pos['x']++;
-			if(pos['x'] <= 8){
-				temPeca = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca');
-				if(temPeca){
-					fim = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca-'+player);
-					if(fim){
-						capturadas = capturadas.concat(line);
-						teste = false;
-					}else{
-						line.push('#'+pos['x']+'_'+pos['y']);
-					}
-				}else{
-					teste = false;
-				}
-			}else{
-				teste = false;
-			}
-		}
-		
-		pos['x'] = $(objeto).data('x');
-		pos['y'] = $(objeto).data('y');
-		teste = true;
-		var line = new Array();
-		while(teste == true){
-			pos['x']++;
-			pos['y']++;
-			if(pos['x'] <= 8 && pos['y'] <= 8){
-				temPeca = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca');
-				if(temPeca){
-					fim = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca-'+player);
-					if(fim){
-						capturadas = capturadas.concat(line);
-						teste = false;
-					}else{
-						line.push('#'+pos['x']+'_'+pos['y']);
-					}
-				}else{
-					teste = false;
-				}
-			}else{
-				teste = false;
-			}
-		}
-		
-		pos['x'] = $(objeto).data('x');
-		pos['y'] = $(objeto).data('y');
-		teste = true;
-		var line = new Array();
-		while(teste == true){
-			pos['x']--;
-			pos['y']--;
-			if(pos['x'] > 0 && pos['y'] > 0){
-				temPeca = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca');
-				if(temPeca){
-					fim = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca-'+player);
-					if(fim){
-						capturadas = capturadas.concat(line);
-						teste = false;
-					}else{
-						line.push('#'+pos['x']+'_'+pos['y']);
-					}
-				}else{
-					teste = false;
-				}
-			}else{
-				teste = false;
-			}
-		}
-		
-		pos['x'] = $(objeto).data('x');
-		pos['y'] = $(objeto).data('y');
-		teste = true;
-		var line = new Array();
-		while(teste == true){
-			pos['x']++;
-			pos['y']--;
-			if(pos['x'] <= 8 && pos['y'] > 0){
-				temPeca = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca');
-				if(temPeca){
-					fim = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca-'+player);
-					if(fim){
-						capturadas = capturadas.concat(line);
-						teste = false;
-					}else{
-						line.push('#'+pos['x']+'_'+pos['y']);
-					}
-				}else{
-					teste = false;
-				}
-			}else{
-				teste = false;
-			}
-		}
-		
-		pos['x'] = $(objeto).data('x');
-		pos['y'] = $(objeto).data('y');
-		teste = true;
-		var line = new Array();
-		while(teste == true){
-			pos['x']--;
-			pos['y']++;
-			if(pos['x'] > 0 && pos['y'] <=8){
-				temPeca = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca');
-				if(temPeca){
-					fim = $('#'+pos['x']+'_'+pos['y']).children().children().hasClass('peca-'+player);
-					if(fim){
-						capturadas = capturadas.concat(line);
-						teste = false;
-					}else{
-						line.push('#'+pos['x']+'_'+pos['y']);
-					}
-				}else{
-					teste = false;
-				}
-			}else{
-				teste = false;
-			}
-		}
-		
-		jQuery.each(capturadas , function(index, value){
-		     $(value).children().html('<div class="peca peca-'+player+'"></div>');; 
-		});
-		
-		if(capturadas.length > 0){
-			colocarPeca($(objeto));
-			mudarJogador();
-		}
-	}
-	calculaPontos();
-}
-
-function calculaPontos(){
-	$('#player-1 .pontos').text($('.peca-preta').length-1);
-	$('#player-2 .pontos').text($('.peca-branca').length-1);
-}
-
-$(".player-selector").click(function(e){
-	e.preventDefault();
-	selecionarJogador($(this));
-});
-
-$(".casa").click(function(e){
-	e.preventDefault();
-	capturar($(this));
-});
+singlePlayerGame.init();
 
