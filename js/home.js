@@ -1,3 +1,12 @@
+// Register the service worker if available.
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').then(function(reg) {
+        console.log('Successfully registered service worker', reg);
+    }).catch(function(err) {
+        console.warn('Error whilst registering service worker', err);
+    });
+}
+
 if (typeof jQuery === 'undefined') { throw new Error('Reversi\'s JavaScript requires jQuery') }
 
 $('#bt-local-player').click(function(e){
