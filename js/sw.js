@@ -10,19 +10,19 @@ self.addEventListener('install', function(e) {
     e.waitUntil(
         caches.open(cacheName).then(function(cache) {
             return cache.addAll([
-                './index.html',
-                './pages/tabuleiro.html',
-                './js/reversi-ia.js',
-                './js/reversi.js',
-                './js/home.js',
-                './bower_components/sweetalert/dist/sweetalert.css',
-                './bower_components/bootstrap/dist/css/bootstrap.min.css',
-                './css/home.css',
-                './css/estilo.css',
-                './bower_components/jquery/dist/jquery.min.js',
-                './bower_components/bootstrap/dist/js/bootstrap.min.js',
-                './bower_components/sweetalert/dist/sweetalert.min.js',
-                './images/favicon.ico',
+                '../index.html',
+                '../pages/tabuleiro.html',
+                '../js/reversi-ia.js',
+                '../js/reversi.js',
+                '../js/home.js',
+                '../bower_components/sweetalert/dist/sweetalert.css',
+                '../bower_components/bootstrap/dist/css/bootstrap.min.css',
+                '../css/home.css',
+                '../css/estilo.css',
+                '../bower_components/jquery/dist/jquery.min.js',
+                '../bower_components/bootstrap/dist/js/bootstrap.min.js',
+                '../bower_components/sweetalert/dist/sweetalert.min.js',
+                '../images/favicon.ico',
             ]).then(function() {
                 self.skipWaiting();
             });
