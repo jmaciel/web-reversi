@@ -18,6 +18,7 @@ self.addEventListener('install', function(e) {
                 'bower_components/sweetalert/dist/sweetalert.css',
                 'bower_components/bootstrap/dist/css/bootstrap.min.css',
                 'css/home.css',
+                'css/estilo.css',
                 'bower_components/jquery/dist/jquery.min.js',
                 'bower_components/bootstrap/dist/js/bootstrap.min.js',
                 'bower_components/sweetalert/dist/sweetalert.min.js',
