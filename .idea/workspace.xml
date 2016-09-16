@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c468d0e-7aa3-472f-a272-fab7cbecd4c2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/launcher-icon-144.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/launcher-icon-192.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/launcher-icon-256.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/launcher-icon-96.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/launcher-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/sw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/manifest.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/home.js" afterPath="$PROJECT_DIR$/js/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/tabuleiro.html" afterPath="$PROJECT_DIR$/pages/tabuleiro.html" />
     </list>
     <ignored path="web-reversi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -367,18 +356,18 @@
       <workItem from="1473723828709" duration="5227000" />
       <workItem from="1473822048393" duration="1880000" />
       <workItem from="1473901324033" duration="9611000" />
-      <workItem from="1473986911816" duration="3459000" />
+      <workItem from="1473986911816" duration="3843000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67040000" />
+    <option name="totallyTimeSpent" value="67424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1373802" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1373802" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
